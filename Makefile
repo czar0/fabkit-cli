@@ -1,4 +1,5 @@
-BIN="./bin"
+ROOT="${PWD}"
+BIN="${ROOT}/bin"
 XC_OS="linux darwin"
 XC_ARCH="amd64"
 XC_PARALLEL="2"
@@ -29,7 +30,7 @@ test: install_deps lint
 build: install_deps
 	$(info ******************** building binary ********************)
 	mkdir -p $(BIN)
-	gox \
+	cd ${ROOT}/cmd/fabkit && gox \
 		-os=$(XC_OS) \
 		-arch=$(XC_ARCH) \
 		-parallel=$(XC_PARALLEL) \

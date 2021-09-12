@@ -1,0 +1,31 @@
+version: 1.0.0
+
+fabric:
+  images:
+    - image: hyperledger/fabric-peer
+      tag: 2.3.3
+    - image: hyperledger/fabric-orderer
+      tag: 2.3.3
+    - image: hyperledger/fabric-ccenv
+      tag: 2.3.3
+    - image: hyperledger/fabric-ca
+      tag: 1.5.2
+    - image: couchdb
+      tag: 3.1.1
+  network:
+    profile:
+      network: OneOrgOrdererGenesis
+      channel: OneOrgChannel
+    organizations:
+      - msp: Org1MSP
+        chaincodes:
+          - name: mygocc
+            version: 1.0
+        channels:
+          - mychannel
+    orderers:
+      - msp: OrdererMSP
+        address: orderer.example.com:7050
+        channels:
+          - orderer-system-channel
+    tls: true
