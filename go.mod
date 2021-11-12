@@ -10,5 +10,5 @@ require (
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/spf13/cobra v1.2.1
-	github.com/spf13/viper v1.8.1
+	github.com/spf13/viper v1.9.0
 )
