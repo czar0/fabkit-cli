@@ -11,7 +11,7 @@ func NewCmdNetwork() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "network",
 		Short: "All operations to install, run and stop a Hyperledger Fabric network",
-		Long: `All operations to install, run and stop a Hyperledger Fabric network.`,
+		Long:  `All operations to install, run and stop a Hyperledger Fabric network.`,
 		Run: func(cmd *cobra.Command, args []string) {
 			if err := cmd.Help(); err != nil {
 				log.Fatalln(err)

@@ -15,4 +15,3 @@ var Spin spinner.Spinner
 func Init() {
 	Spin = *spinner.New(spinner.CharSets[11], 100*time.Millisecond, spinner.WithColor("magenta"), spinner.WithFinalMSG("✅\n"))
 }
-

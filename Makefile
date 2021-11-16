@@ -1,15 +1,6 @@
-ROOT="${PWD}"
-BIN="${ROOT}/bin"
-XC_OS="linux darwin"
-XC_ARCH="amd64"
-XC_PARALLEL="2"
 SRC=$(shell find . -name "*.go")
 
-ifeq (, $(shell which gox))
-$(warning "could not find gox in $(PATH), run: go get github.com/mitchellh/gox")
-endif
-
-.PHONY: all fmt lint test build install_deps clean
+.PHONY: all fmt lint test build install_deps
 
 default: all
 
@@ -27,19 +18,21 @@ test: install_deps lint
 	$(info ******************** running tests ********************)
 	richgo test -v ./...
 
+install: install_deps
+	$(info ******************** installing binary ********************)
+	cd cmd/fabkit && go install
+
 build: install_deps
 	$(info ******************** building binary ********************)
-	mkdir -p $(BIN)
-	cd ${ROOT}/cmd/fabkit && gox \
-		-os=$(XC_OS) \
-		-arch=$(XC_ARCH) \
-		-parallel=$(XC_PARALLEL) \
-		-output=$(BIN)/{{.Dir}}_{{.OS}}_{{.Arch}} \
-		;
+	cd cmd/fabkit && go build
 
 install_deps:
 	$(info ******************** downloading dependencies ********************)
 	go get -v ./...
+ifeq (, $(shell which golangci-lint))
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+endif
 
-clean:
-	rm -rf $(BIN)
+ifeq (, $(shell which richgo))
+go install github.com/kyoh86/richgo@latest
+endif
