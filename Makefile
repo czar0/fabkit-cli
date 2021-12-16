@@ -30,9 +30,9 @@ install_deps:
 	$(info ******************** downloading dependencies ********************)
 	go get -v ./...
 ifeq (, $(shell which golangci-lint))
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 endif
 
 ifeq (, $(shell which richgo))
-go install github.com/kyoh86/richgo@latest
+	go install github.com/kyoh86/richgo@latest
 endif
