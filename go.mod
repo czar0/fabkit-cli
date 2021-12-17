@@ -3,7 +3,7 @@ module github.com/czar0/fabkit-cli
 go 1.17
 
 require (
-	github.com/briandowns/spinner v1.16.0
+	github.com/briandowns/spinner v1.17.0
 	github.com/docker/docker v20.10.12+incompatible
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 	github.com/spf13/cobra v1.2.1
