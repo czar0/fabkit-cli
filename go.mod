@@ -6,7 +6,7 @@ require (
 	github.com/briandowns/spinner v1.17.0
 	github.com/docker/docker v20.10.12+incompatible
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
-	github.com/spf13/cobra v1.2.1
+	github.com/spf13/cobra v1.3.0
 	github.com/spf13/viper v1.10.1
 )
 
