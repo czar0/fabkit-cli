@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/briandowns/spinner v1.18.1
-	github.com/docker/docker v20.10.12+incompatible
+	github.com/docker/docker v20.10.14+incompatible
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.11.0
